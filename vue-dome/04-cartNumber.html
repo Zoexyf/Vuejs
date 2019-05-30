@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <div>
+        <label for="">商品价格</label>
+        <input type="number" v-model="singleprice" >
+    </div>
+
+    <div>
+        <label for="">商品数量</label>
+        <button v-on:click="goods--">-</button>
+        {{goods}}
+        <button v-on:click="handleCountClick">+</button>
+    </div>
+
+    <div>
+        <label for="">总价格</label>
+        <h4>{{ singleprice*goods}}</h4>
+    </div>
+</div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    const app=new Vue({
+        el:'#app',
+        data:{
+            // goods:5,
+            singleprice:34
+
+        },
+        methods:{
+            handleCountClick(){
+                console.log(this)
+            }
+        }
+    })
+</script>
+</body>
+</html>
