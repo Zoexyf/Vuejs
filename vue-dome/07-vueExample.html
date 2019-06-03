@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+
+   <h2>{{message}}</h2>
+    <button @click="handleClick"></button>
+
+</div>
+
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+
+    var app=new Vue({
+
+        // el:document.getElementById('app')
+        el:'#app',
+
+        data:{
+        message:'hello'
+        },//视图中绑定的成员必须显示到初始化data中
+
+
+        methods:{
+            handleClick:function () {
+                window.alert(this.message)
+            }//不要使用=>函数，会指向父域
+
+        }
+        // template:
+        // render:
+        // renderError:
+        // beforeCreat:
+    }).$mount('#app')//这种方式具有明显的动作意思
+
+    app.$data.message('hehiehi')//只能修改，不能动态添加
+
+</script>
+</body>
+</html>
