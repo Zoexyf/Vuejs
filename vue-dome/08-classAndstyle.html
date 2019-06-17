@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .active {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+<div id="app">
+    <h1
+            :class="{active: isActive}"
+            :style="{backgroundColor: bgc}">hello world</h1>
+
+    <br>
+    <input type="checkbox" v-model="checked">
+</div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            isActive: true,
+            hasError: false,
+            bgc: 'yellow',
+            checked: true
+        }
+    })
+</script>
+</body>
+
+</html>
