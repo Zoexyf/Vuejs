@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/element-ui/lib/theme-chalk/index.css">
+
+</head>
+<body>
+<div id="app">
+    <h1>{{message}}</h1>
+
+
+</div>
+
+
+<script src="node_modules/vue/dist/vue.js"></script>
+<script src="node_modules/element-ui/lib/index.js"></script>
+<script>
+    Vue.component('global-component',{
+        template:`
+            <div>
+            <h2>global component</h2>
+            <global2-component></global2-component>
+            </div>`,
+        //组件实例选项 components 也是用来定义组件，但是这种方式定义的组件只能在当前组件中使用
+        components:{
+            //键名就是组件名称，值是一个对象，对象中配置组件的选项
+            hello:{
+                template:`<div>hello template</div>`,
+            }
+        }
+    })
+    Vue.component('global2-component', {
+        template: '<div>global2 component</div>'
+    })
+    //组件一般分为两种：
+    //  全局组件---轮播图实现
+    //  局部组件---todos小案例
+
+    const app=new Vue({
+        el:'#app',
+        data:{
+            message:'hello world'
+
+        },
+        methods:{
+            handleClick(){
+                window.alert(this.value)
+            }
+
+        }
+    })
+</script>
+
+</body>
+</html>

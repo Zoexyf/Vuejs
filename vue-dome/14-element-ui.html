@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+        npm i element-ui
+        导入组件库的CSS样式
+        导入Vue
+        导入element-ui组件库javascript脚本
+    -->
+    <link rel="stylesheet" href="node_modules/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+    <div id="app">
+        <!--组件的封装就是封装了一个自定义的HTML标签-->
+
+        <el-rate
+                v-model="value"
+                show-text>
+        </el-rate>
+        <button @click="handleClick">弹出用户评分</button>
+        <br>
+        <br>
+        <br>
+        <hr>
+        <div class="block">
+            <span class="demonstration">默认</span>
+            <el-date-picker v-model="value1" type="date" placeholder="选择日期">
+            </el-date-picker>
+        </div>
+
+    </div>
+
+
+<script src="node_modules/vue/dist/vue.js"></script>
+<script src="node_modules/element-ui/lib/index.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            value:null,
+            value1:''
+
+        },
+        methods:{
+            handleClick(){
+                window.alert(this.value)
+            }
+
+        }
+    })
+</script>
+
+</body>
+</html>

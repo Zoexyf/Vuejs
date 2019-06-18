@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/element-ui/lib/theme-chalk/index.css">
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+  <h1>{{message}}</h1>
+    <my-component></my-component>
+
+</div>
+
+
+<script src="node_modules/vue/dist/vue.js"></script>
+<script src="node_modules/element-ui/lib/index.js"></script>
+<script>
+    //1.先定义（注册）组件
+    //2.使用
+    //3.组件的模板template
+    //  注意：只能有一个根元素，否则警告报错
+    //  3.1 template可以是字面量字符串，缺点是没有高亮，内置在javascript中，写起来麻烦
+    //  3.2 template 可以卸载script标签中，虽然解决了高亮的问题，但是也麻烦
+    //  3.3 使用Vue食物.vue单文件组件来写，该方式必须结合一些构建工具
+    //4.组件是独立的作用域，就像node中的JavaScript模块一样，独立的
+    //5.组件是一个特殊的Vue实例，可以有自己的data、methods、computed ，watch等等选项
+    //6.组件的实例必须是方法，方法中返回一个对象作为组件的data
+    Vue.component('my-component',{
+        template:
+            `
+             <div>
+                <div>My Component</div>
+                <h2>{{message}}</h2>
+                <button @click="handleClick">点击弹出自己的message</button>
+                <input type="checkbox" v-model="checked"/>
+                <div class="box" v-if="checked"></div>
+             </div>
+                `,
+
+        data(){
+            return{
+                message:'Component Data',
+                checked:true
+            }
+        },
+        methods:{
+            handleClick(){
+                window.alert(this.message)
+            }
+
+        }
+    })
+
+    const app=new Vue({
+        el:'#app',
+        data:{
+            massage:'hello world'
+
+        },
+        methods:{
+            handleClick(){
+                window.alert(this.value)
+            }
+
+        }
+    })
+</script>
+<!--<p>以下为单文件demo的vue代码样例</p>-->
+<!--&lt;!&ndash; -->
+  <!--但是这种方式浏览器不能直接识别，需要结合 webpack 构建工具才能玩儿。-->
+ <!--&ndash;&gt;-->
+
+<!--&lt;!&ndash; 组件的模板，写到 template 中 &ndash;&gt;-->
+<!--<template>-->
+    <!--<div></div>-->
+<!--</template>-->
+
+<!--&lt;!&ndash; 组件的 JavaScript 脚本写到 script 标签中 &ndash;&gt;-->
+<!--<script>-->
+    <!--export default {-->
+        <!--data () {-->
+            <!--return {}-->
+        <!--}-->
+    <!--}-->
+<!--</script>-->
+
+<!--&lt;!&ndash; 组件的 CSS 写到 style 标签中 &ndash;&gt;-->
+<!--<style>-->
+<!--</style>-->
+
+
+
+</body>
+</html>
