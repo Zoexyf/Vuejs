@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Template • TodoMVC</title>
+		<link rel="stylesheet" href="node_modules/todomvc-common/base.css">
+		<link rel="stylesheet" href="node_modules/todomvc-app-css/index.css">
+		<!-- CSS overrides - remove if you don't need it -->
+		<link rel="stylesheet" href="css/app.css">
+	</head>
+	<body>
+		<!-- 声明入口节点，告诉 Vue 把组件渲染到这里，最终实例的 template 会把入口节点给替换掉 -->
+		<div id="app"></div>
+		<!-- Scripts here. Don't remove ↓ -->
+
+		<script src="node_modules/vue/dist/vue.js"></script>
+		<script src="components/todo-header.js"></script>
+		<script src="components/app-footer.js"></script>
+		<script src="components/todo-footer.js"></script>
+		<script src="components/todo-list.js"></script>
+		<script src="components/app.js"></script>
+		<script src="main.js"></script>
+		<!--
+			main.js 是组件启动的入口
+
+		 -->
+	</body>
+</html>
